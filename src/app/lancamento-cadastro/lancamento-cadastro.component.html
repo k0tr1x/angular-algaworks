@@ -10,11 +10,20 @@
       <!-- p-col-6 para ocupar 6 colunas, p-md-3 para ter o tamanho medio de 3 colunas-->
       <div class="p-col-6 p-md-3 p-fluid">
         <label>Vencimento</label>
-        <input pInputText type="text">
+        <p-calendar dateFormat="dd/mm/yy"
+        [inline]="false" [readonlyInput]="false"
+        [showIcon]="true"></p-calendar>
+        <!--
+          inline -> Para mostrar o calendario direto, nao como um popup
+          readonlyInput -> padrão false, se colocar true, não pode alterar o calendario
+          showIcon -> Colocar um icone de calendario no canto da barra.
+         -->
       </div>
       <div class="p-col-6 p-md-3 p-fluid">
         <label>Recebimento</label>
-        <input pInputText type="text">
+        <p-calendar dateFormat="dd/mm/yy"
+        [inline]="false" [readonlyInput]="false"
+        [showIcon]="true"></p-calendar>
       </div>
       <div class="p-col-12 p-md-9 p-fluid">
         <label>Descrição</label>
