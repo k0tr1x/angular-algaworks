@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -27,6 +28,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,13 +40,14 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
     TableModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
-    BrowserAnimationsModule,
+    FormsModule,
     SelectButtonModule,
     DropdownModule,
     InputMaskModule,
