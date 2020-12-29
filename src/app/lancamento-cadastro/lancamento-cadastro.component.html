@@ -37,7 +37,12 @@
 
       <div class="p-col-12 p-md-3 p-fluid">
         <label>Valor</label>
-        <input pInputText type="text" placeholder="0,00">
+        <input pInputText type="text" placeholder="0,00" currencyMask
+        [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }">
+        <!--
+          CURRENCYMASK -> Instalar Module, e serve para configurar valor.
+          ALLOWNEGATIVE -> Não permite que o valor seja negativo
+        -->
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
