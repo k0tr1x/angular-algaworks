@@ -1,7 +1,9 @@
+import { LancamentoService } from './lancamentos/lancamento.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
 
     CoreModule,
     LancamentosModule,
@@ -26,7 +29,7 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LancamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
