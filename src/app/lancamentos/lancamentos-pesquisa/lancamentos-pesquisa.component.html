@@ -32,10 +32,12 @@
 
   <div class="p-grid">
     <div class="p-col-12">
-      <p-table [value]="lancamentos" [paginator]="true" [rows]="5"
-          [responsive]="true">
-        <ng-template pTemplate="emptymessage">
-          <tr>
+      <p-table [value]="lancamentos" [responsive]="true"
+      [paginator]="true" [rows]="filtro.itensPorPagina"
+      [lazy]="true" [totalRecords]="totalRegistros"
+      (onLazyLoad)="aoMudarPagina($event)">
+    <ng-template pTemplate="emptymessage">
+      <tr>
             <td colspan="6">
               Nenhum lançamento encontrado
             </td>
