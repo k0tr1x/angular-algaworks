@@ -20,8 +20,8 @@ export class LancamentoService {
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const headers = new HttpHeaders()
-      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-      let params = new HttpParams()
+    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    let params = new HttpParams()
       .set('page', filtro.pagina.toString())
       .set('size', filtro.itensPorPagina.toString());
 
@@ -31,12 +31,12 @@ export class LancamentoService {
 
     if (filtro.dataVencimentoInicio) {
       params = params.set('dataVencimentoDe',
-        moment(filtro.dataVencimentoInicio).format('DD-MM-YYYY'));
+        moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'));
     }
 
     if (filtro.dataVencimentoFim) {
       params = params.set('dataVencimentoAte',
-        moment(filtro.dataVencimentoFim).format('DD-MM-YYYY'));
+        moment(filtro.dataVencimentoFim).format('YYYY-MM-DD'));
     }
 
     return this.http.get(`${this.lancamentosUrl}?resumo`, { headers, params })
@@ -51,6 +51,15 @@ export class LancamentoService {
 
         return resultado;
       });
+  }
+
+  excluir(codigo: number): Promise<void> {
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.delete(`${this.lancamentosUrl}/${codigo}`, { headers })
+      .toPromise()
+      .then(() => null);
   }
 
 }
