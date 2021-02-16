@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MessageService, ConfirmationService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -13,9 +17,6 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 
 import { PessoaService } from './pessoas/pessoa.service';
 import { LancamentoService } from './lancamentos/lancamento.service';
-
-import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ToastModule } from 'primeng/toast';
     HttpClientModule,
 
     ToastModule,
+    ConfirmDialogModule,
 
     CoreModule,
     LancamentosModule,
@@ -35,7 +37,11 @@ import { ToastModule } from 'primeng/toast';
 
     AppRoutingModule
   ],
-  providers: [MessageService, LancamentoService, PessoaService],
+  providers: [
+    MessageService,
+    ConfirmationService,
+    LancamentoService,
+    PessoaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
