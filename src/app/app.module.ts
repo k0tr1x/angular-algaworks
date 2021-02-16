@@ -14,6 +14,9 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoaService } from './pessoas/pessoa.service';
 import { LancamentoService } from './lancamentos/lancamento.service';
 
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -24,13 +27,15 @@ import { LancamentoService } from './lancamentos/lancamento.service';
     FormsModule,
     HttpClientModule,
 
+    ToastModule,
+
     CoreModule,
     LancamentosModule,
     PessoasModule,
 
     AppRoutingModule
   ],
-  providers: [LancamentoService, PessoaService],
+  providers: [MessageService, LancamentoService, PessoaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
