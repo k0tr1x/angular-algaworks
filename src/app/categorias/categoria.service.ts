@@ -4,8 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasService {
-
+export class CategoriaService {
   categoriasUrl = 'http://localhost:8080/categorias';
 
   constructor(private http: HttpClient) { }
