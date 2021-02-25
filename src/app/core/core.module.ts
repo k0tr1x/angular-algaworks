@@ -9,6 +9,7 @@ import { ToastModule } from 'primeng/toast';
 
 import { ErrorHandlerService } from './error-handler.service';
 import { PessoaService } from './../pessoas/pessoa.service';
+import { CategoriaService } from './../categorias/categoria.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -31,6 +32,7 @@ registerLocaleData(localePt);
   providers: [
     LancamentoService,
     PessoaService,
+    CategoriaService,
     ErrorHandlerService,
 
     ConfirmationService,
