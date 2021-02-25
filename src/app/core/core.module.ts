@@ -13,6 +13,7 @@ import { PessoaService } from './../pessoas/pessoa.service';
 import { CategoriaService } from './../categorias/categoria.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 
 registerLocaleData(localePt);
 
@@ -24,7 +25,8 @@ registerLocaleData(localePt);
     RouterModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PaginaNaoEncontradaComponent
   ],
   exports: [
     NavbarComponent,
