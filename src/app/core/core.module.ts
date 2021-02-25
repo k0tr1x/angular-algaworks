@@ -14,6 +14,7 @@ import { CategoriaService } from './../categorias/categoria.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { Title } from '@angular/platform-browser';
 
 registerLocaleData(localePt);
 
@@ -41,6 +42,7 @@ registerLocaleData(localePt);
 
     ConfirmationService,
     MessageService,
+    Title,
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]
 })
