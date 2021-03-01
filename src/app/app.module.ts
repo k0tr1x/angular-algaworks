@@ -1,3 +1,4 @@
+import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +29,7 @@ registerLocaleData(localePt); // Para arrumar o modo dos numeros, ponto e virgul
     CoreModule,
     LancamentosModule,
     PessoasModule,
+    SegurancaModule,
 
     AppRoutingModule
   ],
