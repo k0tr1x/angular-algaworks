@@ -1,16 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { CategoriaService } from './categoria.service';
+@Injectable()
+export class CategoriaService {
 
-describe('CategoriaService', () => {
-  let service: CategoriaService;
+  categoriasUrl = 'http://localhost:8080/categorias';
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CategoriaService);
-  });
+  constructor(private http: HttpClient) { }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  listarTodas(): Promise<any> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(this.categoriasUrl, { headers })
+      .toPromise();
+  }
+
+}
