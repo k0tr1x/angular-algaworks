@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
+import { AuthService } from './../../seguranca/auth.service';
 import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 
@@ -21,6 +22,7 @@ export class LancamentosPesquisaComponent implements OnInit {
   @ViewChild('tabela') grid: Table;
 
   constructor(private lancamentoService: LancamentoService,
+              private auth: AuthService,
               private errorHandler: ErrorHandlerService,
               private messageService: MessageService,
               private confirmation: ConfirmationService,
