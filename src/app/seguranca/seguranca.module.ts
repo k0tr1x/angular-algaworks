@@ -1,4 +1,3 @@
-
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 import { AuthGuard } from './auth.guard';
+import { LogoutService } from './logout.service';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MoneyHttpInterceptor } from './money-http-interceptor';
@@ -46,7 +46,8 @@ export function tokenGetter(): string {
       useClass: MoneyHttpInterceptor,
       multi: true
     },
-    AuthGuard
+    AuthGuard,
+    LogoutService
   ],
 
 })
