@@ -1,3 +1,4 @@
+import { DashboardModule } from './dashboard/dashboard.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,8 @@ registerLocaleData(localePt); // Para arrumar o modo dos numeros, ponto e virgul
     LancamentosModule,
     PessoasModule,
     SegurancaModule,
+
+    DashboardModule,
 
     AppRoutingModule
   ],
