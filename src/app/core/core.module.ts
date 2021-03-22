@@ -1,3 +1,4 @@
+import { DashboardService } from './../dashboard/dashboard.service';
 
 import { Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -41,6 +42,7 @@ registerLocaleData(localePt);
     CategoriaService,
     ErrorHandlerService,
     AuthService,
+    DashboardService,
 
     ConfirmationService,
     MessageService,
