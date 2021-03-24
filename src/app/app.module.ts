@@ -1,3 +1,5 @@
+import { RelatoriosRoutingModule } from './relatorios/relatorios-routing.module';
+import { RelatoriosModule } from './relatorios/relatorios.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +35,8 @@ registerLocaleData(localePt); // Para arrumar o modo dos numeros, ponto e virgul
     SegurancaModule,
 
     DashboardModule,
+    RelatoriosModule,
+    RelatoriosRoutingModule,
 
     AppRoutingModule
   ],
