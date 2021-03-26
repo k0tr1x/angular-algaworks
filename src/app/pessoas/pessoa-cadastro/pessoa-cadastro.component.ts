@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/api';
 
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { PessoaService } from '../pessoa.service';
-import { Pessoa } from '../../core/model';
+import { Pessoa, Contato } from '../../core/model';
 
 @Component({
   selector: 'app-pessoa-cadastro',
@@ -18,6 +18,7 @@ export class PessoaCadastroComponent implements OnInit {
 
   pessoa = new Pessoa();
   exbindoFormularioContato = false;
+  contato: Contato;
 
   constructor(
     private pessoaService: PessoaService,
@@ -40,6 +41,19 @@ export class PessoaCadastroComponent implements OnInit {
 
   prepararNovoContato() {
     this.exbindoFormularioContato = true;
+  }
+
+  confirmarContato(frm: FormControl) {
+    this.pessoa.contatos.push(this.clonarContato(this.contato));
+
+    this.exbindoFormularioContato = false;
+
+    frm.reset();
+  }
+
+  clonarContato(contato: Contato): Contato {
+    return new Contato(contato.codigo,
+      contato.nome, contato.email, contato.telefone);
   }
 
   get editando() {
