@@ -60,6 +60,10 @@ export class PessoaCadastroComponent implements OnInit {
     frm.reset(); // Limpa o formulario, mas limpa o contato tambem, criando clonarContato para resolver
   }
 
+  removerContato(index: number) {
+    this.pessoa.contatos.splice(index, 1); // Index referente ao Index, e o 1 numero  de registros que serão apagados
+  }
+
   clonarContato(contato: Contato): Contato {
     return new Contato(contato.codigo,
       contato.nome, contato.email, contato.telefone);
