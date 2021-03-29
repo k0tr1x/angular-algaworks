@@ -5,9 +5,9 @@ import { FormControl } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
-import { ErrorHandlerService } from '../../core/error-handler.service';
-import { PessoaService } from '../pessoa.service';
-import { Pessoa, Contato } from '../../core/model';
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { PessoaService } from './../pessoa.service';
+import { Pessoa, Contato } from './../../core/model';
 
 @Component({
   selector: 'app-pessoa-cadastro',
@@ -17,9 +17,6 @@ import { Pessoa, Contato } from '../../core/model';
 export class PessoaCadastroComponent implements OnInit {
 
   pessoa = new Pessoa();
-  exbindoFormularioContato = false;
-  contato: Contato;
-  contatoIndex: number;
 
   constructor(
     private pessoaService: PessoaService,
@@ -38,35 +35,6 @@ export class PessoaCadastroComponent implements OnInit {
     if (codigoPessoa) {
       this.carregarPessoa(codigoPessoa);
     }
-  }
-
-  prepararNovoContato() {
-    this.exbindoFormularioContato = true;
-    this.contato = new Contato();
-    this.contatoIndex = this.pessoa.contatos.length;
-  }
-
-  prepararEdicaoContato(contato: Contato, index: number) {
-    this.contato = this.clonarContato(contato);
-    this.exbindoFormularioContato = true;
-    this.contatoIndex = index;
-  }
-
-  confirmarContato(frm: FormControl) {
-    this.pessoa.contatos.push(this.clonarContato(this.contato));
-
-    this.exbindoFormularioContato = false;
-
-    frm.reset(); // Limpa o formulario, mas limpa o contato tambem, criando clonarContato para resolver
-  }
-
-  removerContato(index: number) {
-    this.pessoa.contatos.splice(index, 1); // Index referente ao Index, e o 1 numero  de registros que serão apagados
-  }
-
-  clonarContato(contato: Contato): Contato {
-    return new Contato(contato.codigo,
-      contato.nome, contato.email, contato.telefone);
   }
 
   get editando() {
