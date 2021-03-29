@@ -19,6 +19,7 @@ export class PessoaCadastroComponent implements OnInit {
   pessoa = new Pessoa();
   exbindoFormularioContato = false;
   contato: Contato;
+  contatoIndex: number;
 
   constructor(
     private pessoaService: PessoaService,
@@ -41,6 +42,14 @@ export class PessoaCadastroComponent implements OnInit {
 
   prepararNovoContato() {
     this.exbindoFormularioContato = true;
+    this.contato = new Contato();
+    this.contatoIndex = this.pessoa.contatos.length;
+  }
+
+  prepararEdicaoContato(contato: Contato, index: number) {
+    this.contato = this.clonarContato(contato);
+    this.exbindoFormularioContato = true;
+    this.contatoIndex = index;
   }
 
   confirmarContato(frm: FormControl) {
@@ -48,7 +57,7 @@ export class PessoaCadastroComponent implements OnInit {
 
     this.exbindoFormularioContato = false;
 
-    frm.reset();
+    frm.reset(); // Limpa o formulario, mas limpa o contato tambem, criando clonarContato para resolver
   }
 
   clonarContato(contato: Contato): Contato {
