@@ -64,19 +64,27 @@
           formControlName="observacao"></textarea>
       </div>
 
-      <div class="p-col-6 p-col-offset-6 p-md-2 p-md-offset-10 p-fluid">
-        <p-fileUpload name="anexo" mode="basic" auto="true" maxFileSize="100000000"
-          chooseLabel="Anexar" accept="image/*,application/*"
-          [url]="urlUploadAnexo"></p-fileUpload>
-      </div>
-
-      <div class="p-col-12">
-        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
-        <button pButton type="button" label="Novo" class="p-button-info"
-          (click)="novo()"></button>
-        <a routerLink="/lancamentos">Voltar para a pesquisa</a>
-      </div>
+      <div class="p-col-6 p-col-offset-6 p-md-2 p-md-offset-10 p-fluid"
+      *ngIf="!formulario.get('anexo').value">
+      <p-fileUpload name="anexo" mode="basic" auto="true" maxFileSize="100000000"
+        chooseLabel="Anexar" accept="image/*,application/*"
+        [url]="urlUploadAnexo"
+        (onUpload)="aoTerminarUploadAnexo($event)"></p-fileUpload>
     </div>
 
-  </form>
+    <div class="p-col-12 p-fluid" dir="rtl"
+      *ngIf="formulario.get('anexo').value">
+      <a target="_blank" pTooltip="Baixar anexo" tooltipPosition="top"
+        [href]="formulario.get('urlAnexo').value">{{ nomeAnexo }}</a>
+    </div>
+
+    <div class="p-col-12">
+      <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+      <button pButton type="button" label="Novo" class="p-button-info"
+        (click)="novo()"></button>
+      <a routerLink="/lancamentos">Voltar para a pesquisa</a>
+    </div>
+  </div>
+
+</form>
 </div>
